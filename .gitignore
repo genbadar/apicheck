@@ -1,0 +1,11 @@
+# Binaries
+apicheck
+apicheck.exe
+
+# Go build files
+*.test
+*.out
+
+# IDE
+.vscode/
+.idea/
