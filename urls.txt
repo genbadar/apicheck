@@ -1,0 +1,7 @@
+https://jsonplaceholder.typicode.com/posts
+https://httpbin.org/status/200
+https://httpbin.org/status/500
+https://api.github.com
+https://google.com
+invalid-url
+https://thisdoesnotexist123456.com
