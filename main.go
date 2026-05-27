@@ -9,6 +9,8 @@ import (
 	"strings"
 	"sync"
 	"time"
+
+	"github.com/fatih/color"
 )
 
 const requestTimeout = 10 * time.Second
@@ -126,19 +128,29 @@ func checkAPI(client *http.Client, endpoint string) Result {
 }
 
 func printResult(result Result) {
+	green := color.New(color.FgGreen).SprintFunc()
+	yellow := color.New(color.FgYellow).SprintFunc()
+	red := color.New(color.FgRed).SprintFunc()
+
 	if result.Err != nil {
-		fmt.Printf("✗ %s ERROR: %v\n", result.URL, result.Err)
+		fmt.Printf("%s %s ERROR: %v\n",
+			red("✗"),
+			result.URL,
+			result.Err,
+		)
 		return
 	}
 
 	if result.StatusCode >= 200 && result.StatusCode < 400 {
-		fmt.Printf("✓ %s %d (%dms)\n",
+		fmt.Printf("%s %s %d (%dms)\n",
+			green("✓"),
 			result.URL,
 			result.StatusCode,
 			result.ResponseMs,
 		)
 	} else {
-		fmt.Printf("⚠ %s %d (%dms)\n",
+		fmt.Printf("%s %s %d (%dms)\n",
+			yellow("⚠"),
 			result.URL,
 			result.StatusCode,
 			result.ResponseMs,

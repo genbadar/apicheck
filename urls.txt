@@ -5,3 +5,5 @@ https://api.github.com
 https://google.com
 invalid-url
 https://thisdoesnotexist123456.com
+khan
+abc@gmail.com
